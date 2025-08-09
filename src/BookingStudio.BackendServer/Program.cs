@@ -1,5 +1,9 @@
-var builder = WebApplication.CreateBuilder(args);
+using BookingStudio.BackendServer.Data;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 // Add services to the container.
 
 builder.Services.AddControllers();
