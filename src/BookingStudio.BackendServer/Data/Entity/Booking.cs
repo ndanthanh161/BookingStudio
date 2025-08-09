@@ -18,7 +18,7 @@ namespace BookingStudio.BackendServer.Data.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookingId { get; set; }
 
-       [Required]
+        [Required]
         public int UserId { get; set; }
 
         // FK -> Rooms

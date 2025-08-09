@@ -83,6 +83,23 @@ namespace BookingStudio.BackendServer.Data
             modelBuilder.Entity<Booking>().Property(b => b.RoomPrice).HasColumnType("decimal(10,2)");
             modelBuilder.Entity<Payment>().Property(p => p.Amount).HasColumnType("decimal(12,2)");
 
+            modelBuilder.Entity<Role>()
+                .HasData(
+                    new Role { RoleId = 1, UserRole = "Admin" }
+                );
+            modelBuilder.Entity<User>()
+                .HasData(
+                    new User
+                    {
+                        UserId = 1,
+                        UserName = "admin",
+                        Password = "1", // ⚠ Thực tế nên hash
+                        Email = "admin@example.com",
+                        FullName = "Administrator",
+                        Phone = "0123456789",
+                        RoleId = 1
+                    }
+                );
             base.OnModelCreating(modelBuilder);
         }
     }
